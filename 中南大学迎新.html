@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>中南大学迎新</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+       <meta name="renderer" content="webkit"> <!-- 360手机优先使用chrome内核 -->
+      <meta name="screen-orientation" content="portrait">  <!-- UC强制竖屏 -->
+      <meta name="x5-orientation" content="portrait">  <!-- QQ强制竖屏 -->
+      <meta name="browsermode" content="application">  <!-- UC浏览器应用模式 -->
+      <!--  <meta name="x5-page-mode" content="app">  -->  <!-- QQ应用模式 -->
+      <meta http-equiv="Cache-Control" content="no-siteapp"> <!-- 禁止百度转载页面加载流氓广告 -->
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <!-- 优先使用最高IE内核和chrome内核 -->
+      <meta name="google" value="notranslate">  <!-- 禁用google翻译网页 -->
+      <meta name="robots" content="index,follow">  <!-- 网页搜索引擎方式 -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/yingxin/yingxin.css">
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<header>
+		<div id="head">
+			<img id="zndx" src="images/yingxin/zndx.png">
+			<img id="bg" src="images/yingxin/bg.jpg">
+		</div>
+		<div id="navbar" class="nav nav-pills nav-stacked">
+			<ul>
+				<li id="a1"><a onclick="setTab('a',1,6)" href="javascript:scrollTo(0,0);">全景</a></li>
+				<li id="a2"><a onclick="setTab('a',2,6)" href="javascript:scrollTo(0,0);">周边</a></li>
+				<li id="a3"><a onclick="setTab('a',3,6)" href="javascript:scrollTo(0,0);">校区地图</a></li>
+				<li id="a4"><a onclick="setTab('a',4,6)" href="javascript:scrollTo(0,0);">乘车路线</a></li>
+				<li id="a5"><a onclick="setTab('a',5,6)" href="javascript:scrollTo(0,0);">实用指南</a></li>
+				<li id="a6"><a onclick="setTab('a',6,6)" href="javascript:scrollTo(0,0);">相关答疑</a></li>
+			</ul>
+		</div>
+	</header>
+	
+	<div id="con_a_1" class="mainbody">
+		<div id="block"><span id="ctr">中南大学720°全景</span></div>
+		<div id="block2"></div>
+		<iframe src="http://720yun.com/t/fcejOp4Ozu3?pano_id=2330341" id="myiframe" scrolling="no" frameborder="0"></iframe>
+	</div>	
+	<div id="con_a_2" class="mainbody" style="display: none;">
+		<embed src="http://share.map.qq.com/share/panoId/25011019130306143508500/heading/39.8/pitch/5.7/zoom/1/pano.swf" quality="high" id="myiframe" allowNetworking="all" allowScriptAccess="always" allowFullScreen="true" mode="transparent" type="application/x-shockwave-flash"></embed>
+	</div>
+	<div id="con_a_3" class="mainbody" style="display: none;overflow:hidden;"> 
+		<div style="width:800px;height:800px;margin:-110px 0px 0px 0px;"> 
+			<iframe src="http://map.csu.edu.cn/#campus=nav" width="1000px" height="600" scrolling="no" style="z-index: 300;"></iframe> 
+		</div> 
+	</div>
+	<div  id="con_a_4" class="mainbody" style="display: none;">
+		<iframe src="http://j.map.baidu.com/ZXrtL" id="myiframe" scrolling="no" frameborder="0"></iframe>
+	</div>
+	<div  id="con_a_5" class="mainbody" style="display: none;">
+		
+	</div>
+	<div  id="con_a_6" class="mainbody" style="display: none;">
+		
+	</div>
+</body>
+
+<footer>
+	<img id="star1" src="images/yingxin/star.png">
+	<img id="star2" src="images/yingxin/star2.png">
+	<img id="bear" src="images/yingxin/bear.png">
+	<div id="about">
+		<img id="logo" src="images/yingxin/logo.jpg">
+		<div id="font"><span id="ft1">中南大学易班发展中心</span>
+		<ul style="padding: 0;margin: 0;">
+			<li id="abt"><a href="#">加入易班</a></li>│<li id="abt"><a href="#">关于我们</a></li>
+		</ul>
+		</div>
+	</div>
+	<script type="text/javascript" src=js/yingxin/vr.js></script>
+</footer>
+
+</html>
+<!--
+全景导航及周边修饰（参考好一点的效果）
+引入路线 查公交  （iframe引入某地图）谷歌 （街景
+引入实用指南 （防骗啊军训啊啥的）
+答疑	  （版面清晰的 上中南e行里搜搜）
+实用链接 （之前做的那个中南大学各种豪华链接）
+校园地图（参考北大）maps三校区图片点击链接 地图图片  引入照片浏览 地图图片上附加照片
+学院+部门？
+-->
