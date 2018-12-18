@@ -1,0 +1,250 @@
+/*
+* @Author: ZZQ
+* @Date:   2018-11-08 13:32:58
+* @Last Modified by:   ZZQ
+* @Last Modified time: 2018-11-08 16:19:34
+*/
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/OpenSans-Regular.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal; 
+}
+@font-face {
+  font-family: 'Korataki';
+  src: url('../fonts/Koa.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'CranberryBlues';
+  src: url('../fonts/CranberryBlues.ttf') format('truetype');
+}
+/*全局定义*/
+*{
+  box-sizing: border-box;
+}
+html {
+  height: 100%; 
+}
+body {
+  min-height: 100%; 
+}
+body {
+  margin: 0;
+  padding: 0;
+  font: normal 14px 'Open Sans', sans-serif;
+  line-height: 1.6;
+  color: #101010;
+  overflow: hidden;
+  background-color: #f2f2f2;
+}
+ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+a{
+  text-decoration: none;
+  color: #101010;
+}
+.clearfix:after{
+  content: '';
+  display: block;
+  height: 0;
+  clear: both;
+}
+.wrap{
+    width: 100%;
+    min-height: 2000px;
+    background: #f2f2f2; 
+    background-clip: content-box;
+    padding-left: 30%;
+}
+
+.panel{
+    width: 100%;
+    height: 100%;
+    padding-right: 200px;
+    position: relative;
+}
+#canvas{
+    background-clip: content-box;
+    overflow: hidden;
+    background:url(../image/bg2.png);
+    background-size: 50%;
+    background-repeat: repeat;
+    background-position: center;
+    -moz-box-shadow:-0.5px -0.5px 0.5px #aaa inset;               /* For Firefox3.6+ */
+    -webkit-box-shadow:-0.5px -0.5px 0.5px #aaa inset;            /* For Chrome5+, Safari5+ */
+    box-shadow:-0.5px -0.5px -0.5px #aaa inset; 
+}
+/*按钮系列*/
+.btn{
+  background-color: #fff;
+  border-color: #fff;
+  color: #666;
+  padding: 6px 12px;
+  font-family: CranberryBlues;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.72857143;
+}
+.tab li a {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border-radius: 5px; 
+}
+.tab li a span {
+  display: block;
+  font-size: 24px;
+  line-height: 100%; 
+}
+.tab li a.btn i {
+  display: block;
+  font-size: 24px;
+  margin: 10px auto 0; 
+}
+.btn {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out; 
+  -webkit-box-shadow: 0 2px 0px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 0px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+.btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus {
+  outline: none;
+  box-shadow: none;
+  overflow: hidden; 
+}
+#doc:focus, #doc:active:focus, #doc.active:focus, #doc.focus, #doc:active.focus, #doc.active.focus {
+  box-shadow: none;
+}
+/*竖排按钮样式*/
+.tab{
+  text-align: center;
+  position: absolute;
+  left: -120px;
+  z-index: 1;
+}
+.tab2{
+  text-align: center;
+  position: absolute;
+  right: 100px;
+  bottom: 300px;
+  z-index: 1;
+}
+.tab .btn{
+  background-color: #516070;
+  border-color: #516070;
+  color: #f2f2f2;
+  font-size: 15px;
+  line-height: 30px;
+  font-weight: 400;
+  min-width: 100px;
+  min-height: 100px;
+  border-radius: 50%; 
+  font-family: Open Sans;
+}
+.tab li {
+  margin-top: 100px; 
+}
+.tab2 li{
+  margin-top: 10px;
+}
+.tab2 .btn{
+  min-width: 100px;
+  min-height: 40px;
+}
+#doc {
+  position: absolute;
+  padding-left: 100px;
+  margin-left: -100px;
+  width: 100px;
+  height: 100px;
+  z-index: 2;
+  overflow: hidden;
+  outline: none;
+  border-radius: 50px;
+  box-shadow:  0 2px 0px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+#noshadow{
+  box-shadow: none;
+}
+#search{
+  margin-top: 160px;
+  margin-left: -200px;
+  padding: 4px 10px;
+  min-width: 75px;
+  min-height: 75px;
+}
+/*图标系列*/
+#upload_icon{
+  width: 37px;
+  height: 37px;
+  background: url(../image/uploadicon.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+#search_icon{
+  width: 28px;
+  height: 28px;
+  background: url(../image/searchicon.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+.notpro{
+  position: absolute;
+  color: #444;
+  font-size: 13px;
+  line-height: 40px;
+  bottom: 0;
+  left: 31%;
+}
+/*背景图系列*/
+#bg1{
+    position: absolute;
+    top: 0;
+    left: -50px;
+    height: 100%;
+}
+#bg2{
+    position: absolute;
+    top: -50px;
+    right: -10%;
+    width: 25%;
+    transform: rotate(180deg);
+    -webkit-transform:rotate(180deg); 
+
+}
+#ttle1{
+    position: absolute;
+    top: 5px;
+    left: 30%;
+    width: 50%;
+    z-index: 1;
+}
