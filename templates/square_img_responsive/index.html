@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>正方形杂志图响应式布局</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.clearfloat:after{
+			content: '';
+			display: block;
+			height: 0;
+			clear: both;
+		}
+		.photos{
+			background-color: #DDD;
+		}
+		.photo-cells{
+			background-image: url("4.jpg");
+			background-repeat: no-repeat;
+			background-position:top 0px right 0;
+			background-size:34% 100%;
+
+			
+		}
+		.photo-left div{
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			background-position: center;
+		}
+		.photo-left{
+			width: 66%;
+			float: left;
+			
+		}
+		.left-cell{
+			width: 0;
+			padding: 33.33%;
+			float: left;
+			background-image: url("1.jpg");
+		}
+		.middle-cell{
+			width: 33.32%;
+			float: right;
+		}
+
+		.cell-s{
+			padding:50%; 
+		}
+		.img1{
+			background-image: url("2.jpg");
+		}
+		.img2{
+			background-image: url("3.jpg");
+		}
+		
+		}
+	</style>
+</head>
+<body>
+	<div class="photos">
+		<!--  -->
+		
+		
+		<div class="photo-cells clearfloat">
+			<div class="photo-left clearfloat">
+				<div class="left-cell">
+					
+				</div>
+				<div class="middle-cell">
+					<div class="cell-s img1"></div>
+					<div class="cell-s img2"></div>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+	
+</body>
+</html>
