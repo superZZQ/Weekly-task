@@ -1,0 +1,51 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>2048小游戏</title>
+	<meta name="renderer" content="webkit">	<!-- 360手机优先使用chrome内核 -->
+    <meta name="screen-orientation" content="portrait">  <!-- UC强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">  <!-- QQ强制竖屏 -->
+    <meta name="browsermode" content="application">  <!-- UC浏览器应用模式 -->
+    <!--  <meta name="x5-page-mode" content="app">  -->  <!-- QQ应用模式 -->
+	<meta http-equiv="Cache-Control" content="no-siteapp"> <!-- 禁止百度转载页面加载流氓广告 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <!-- 优先使用最高IE内核和chrome内核 -->
+	<meta name="viewport" content="width=device-width,maximum-scale=1,initial-scale=1.0,user-scalable=no">  <!-- 禁止用户修改网页大小 -->
+	<meta name="google" value="notranslate">  <!-- 禁用google翻译网页 -->
+	<meta name="robots" content="index,follow">  <!-- 网页搜索引擎方式 -->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link href="css/2048.css" rel="stylesheet">
+</head>
+<body>
+	<div class="wrap">
+		<div class="score_box">
+			<b>score:</b><b id="score"></b>
+		</div>
+		<div class="cell_wrap">
+			<div class="box">
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+				<div class="cell"></div>
+			</div>
+		</div>
+	</div>
+	<a class="sign" href="#" onclick="showRanking()"><img src="./images/ranking.png" width="60" height="60"></a>
+	<script src="js/jquery-3.2.1.js"></script>
+	<script src="js/2048.js"></script>
+</body>
+</html>
+<!--
+//加排行榜
+-->
