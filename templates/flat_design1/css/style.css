@@ -1,0 +1,140 @@
+body{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	font-family: Microsoft YaHei;
+}
+.top{
+	height: 650px;
+	overflow: hidden;
+}
+#head{
+	width: 100%;
+	z-index: -1;
+}
+.circle{
+	border-radius: 50%;
+}
+.limit{
+	position: absolute;
+	float: left;
+	left: 50%;
+	top: 100px;
+}
+.title{
+	width: 300px;
+	height: 300px;
+	overflow: hidden;
+	background-color: black;
+	position: relative;
+	z-index: 1;
+	left: -50%;
+	text-align: center;
+	color: #EEEEEE;
+	opacity: 0.7;
+	vertical-align: middle;
+	display: table-cell;
+	font-size: 18px;
+}
+.mainbody{
+	width: 800px;
+	margin: auto;
+	overflow: hidden;
+	padding: 50px 0;
+}
+.nav ul{
+	padding: 0;
+	overflow: hidden;
+	text-align: center;
+}
+.nav li{
+	display: inline-block;
+	float: left;
+	width: 33.3%;
+	height: 200px;
+	list-style-type: none;
+	line-height: 30px;
+}
+.nav a{
+	text-decoration: none;
+	color: #555555;
+}
+.nav img{
+	border-radius: 40px;
+	width: 80px;
+}
+.theme{
+	height: 400px;
+	border-top: 1.5px dotted rgba(122,122,122,0.3);
+	padding: 30px 11px;
+	position: relative;
+}
+.theme img{
+	width: 400px;
+	margin-top: 20px;
+}
+.rightp{
+	margin-left: 450px;
+}
+.leftp{
+	margin-right: 450px;
+}
+.theme a{
+	text-decoration: none;
+	color: #AAAAAA;
+	font-size: 14px;
+	font-weight: lighter;
+}
+.theme a:hover{
+	opacity: 0.5;
+}
+.theme span{
+	border-left: 1.5px solid #CCCCCC;
+	color: #555555;
+	font-size: 18px;
+	font-weight: normal;
+	margin-left: -10px;
+	line-height: 40px;
+}
+.rdmore{
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+.rdmore a{
+	text-decoration: none;
+	color: black;
+	font-size: 30px;
+}
+label{
+	font-size: 20px;
+}
+.bottom{
+	margin-bottom: 200px;
+}
+.other{
+	border-radius: 15px;
+	border: #CCCCCC 2px solid;
+	padding: 40px;
+	line-height: 30px;
+}
+#topic{
+	background-color: #9988AA;
+	text-align: center;
+	padding: 7px 0;
+}
+#contain{
+	position: relative;
+}
+#contain a{
+	display: block;
+	text-decoration: none;
+	color: #9988AA;
+	padding: 15px 20px;
+	font-size: 25px;
+	position: absolute;
+	right: 30px;
+	bottom: 0px;
+	background-color: #EEEEEE;
+	border-radius: 5px;
+}
