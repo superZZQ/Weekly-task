@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+       <meta name="renderer" content="webkit"> <!-- 360手机优先使用chrome内核 -->
+      <meta name="screen-orientation" content="portrait">  <!-- UC强制竖屏 -->
+      <meta name="x5-orientation" content="portrait">  <!-- QQ强制竖屏 -->
+      <meta name="browsermode" content="application">  <!-- UC浏览器应用模式 -->
+      <!--  <meta name="x5-page-mode" content="app">  -->  <!-- QQ应用模式 -->
+      <meta http-equiv="Cache-Control" content="no-siteapp"> <!-- 禁止百度转载页面加载流氓广告 -->
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <!-- 优先使用最高IE内核和chrome内核 -->
+      <meta name="google" value="notranslate">  <!-- 禁用google翻译网页 -->
+  <title>弹幕体验</title>
+  <link rel="stylesheet" type="text/css" href="./css/danmu.css">
+  <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+  <script src="./dist/jquery.danmu.min.js"></script>
+</head>
+
+<body class="center">
+<div id="head">
+  弹幕君
+</div>
+<!--黑背景和弹幕区-->
+<div id="danmuarea">
+  <img src="./images/open.png" id="eye">
+  <input type='checkbox' checked='checked' id='ishide' value='is' onchange='changehide()'>
+  <div id="danmu" >
+
+  </div>
+</div>
+<!--控制区-->
+<div class="ctr" >
+  <textarea id="text" max=300>bibibi~发送弹幕(*^▽^*)</textarea>
+  <button type="button" id="send" onclick="send()">发送</button><br>
+<div style="background-color: #FFFFFF;padding: 5px 0 25px;">
+   <div id="main">
+    <label>颜色</label>  
+      <div id="cl" style="background-color: white;">
+        <input type="radio" name="color" id="color" value="white" checked="checked"></div>
+      <div id="cl" style="background-color: cyan;">
+        <input type="radio" name="color" id="color" value="cyan"></div>
+      <div id="cl" style="background-color: lawngreen;">
+        <input type="radio" name="color" id="color" value="lawngreen"></div>
+      <div id="cl" style="background-color: yellow;">
+        <input type="radio" name="color" id="color" value="yellow"></div>      
+      <div id="cl" style="background-color: red;">
+        <input type="radio" name="color" id="color" value="red"></div>
+      <div id="cl" style="background-color: magenta;">
+        <input type="radio" name="color" id="color" value="magenta"></div>
+      <br>
+    <label>大小</label>
+    <div id="sz1" style="font-size:24px">大
+      <input type="radio" name="size" id="size" value="1" checked="checked" onclick="radio1()"></div>
+    <div id="sz2" style="font-size:16px">小
+      <input type="radio" name="size" id="size" value="0" onclick="radio2()"></div>
+      <br>
+ 
+    <label>位置</label>
+    <div id="pst1">
+      <input type="radio" name="position" id="position" value="0" onclick="radiopst1()" checked="checked">
+      <span id="btm">滚动</span>
+    </div>
+    <div id="pst2">
+      <input type="radio" name="position" id="position" value="1" onclick="radiopst2()">
+      <span id="btm">顶部</span>
+    </div>
+    <div id="pst3">
+      <input type="radio" name="position" id="position" value="2" onclick="radiopst3()">
+      <span id="btm">底端</span>
+    </div>
+  <br>
+</div>
+
+</div>
+ <div id="footer">
+  <button type="button" id="btn1" onclick="pauser()" style="width:43px; height:43px;background-image: url(./images/pause.png);background-color: rgba(255,255,255,0);outline: none;"></button> 
+  <button type="button" id="btn2" onclick="resumer()" style="width:43px; height:43px;background-image: url(./images/play.png);background-color: rgba(255,255,255,0);margin-right: 9px;outline: none;"></button>
+     
+   
+  <label>透明度:</label>
+  <input type="range" name="op" id="op" onchange="op()" value="100"> <br>
+
+  
+  </div>
+  
+ 
+</div>
+<script>
+	//WebSocket
+	var wsServer = 'ws://139.59.123.47:9505';
+	var websocket= new WebSocket(wsServer);
+
+	websocket.onopen = function (evt) {
+		console.log("Connected to WebSocket server.");
+		/*websocket.send("gaga");*/
+		//连上之后就打开弹幕
+		$('#danmu').danmu('danmuResume');
+	};
+
+	websocket.onclose = function (evt) {
+		console.log("Disconnected");
+	};
+
+	websocket.onmessage = function (evt) {
+		console.log('Retrieved data from server: ' + evt.data);
+		var time = $('#danmu').data("nowTime")+1;
+		var text_obj= evt.data +',"time":'+time+'}';//获取加上当前时间
+		console.log(text_obj);
+		var new_obj=eval('('+text_obj+')');
+		$('#danmu').danmu("addDanmu",new_obj);//添加弹幕
+	};
+
+	websocket.onerror = function (evt, e) {
+			console.log('Error occured: ' + evt.data);
+	};
+
+
+
+  //初始化
+  $("#danmu").danmu({
+    left:0,
+    top:0,
+    height:"100%",
+    width:"100%",
+    speed:20000,
+    opacity:1,
+    font_size_small:16,
+    font_size_big:24,
+    top_botton_danmu_time:6000
+  });
+    //一个定时器，监视弹幕时间并更新到页面上
+  function timedCount(){
+    $("#time").text($('#danmu').data("nowTime"));
+
+    t=setTimeout("timedCount()",50)
+
+  }
+  timedCount();
+
+
+  function starter(){
+    $('#danmu').danmu('danmuStart');
+  }
+  function pauser(){
+    $('#danmu').danmu('danmuPause');
+  }
+  function resumer(){
+    $('#danmu').danmu('danmuResume');
+  }
+  function stoper(){
+    $('#danmu').danmu('danmuStop');
+  }
+  function getime(){
+    alert($('#danmu').data("nowTime"));
+  }
+  function getpaused(){
+    alert($('#danmu').data("paused"));
+  }
+
+  //发送弹幕，使用了文档README.md第7节中推荐的方法
+  function send(){
+    var text = document.getElementById('text').value;
+    var color = $("input[name='color']:checked").val();
+    var position = $("input[name='position']:checked").val();
+    //var time = $('#danmu').data("nowTime")+1;
+    var size =$("input[name='size']:checked").val();
+    //var text_obj='{ "text":"'+text+'","color":"'+color+'","size":"'+size+'","position":"'+position+'","time":'+time+'}';
+	//为了处理简单，方便后续加time，和isnew，就先酱紫发一半吧。
+	//注：time为弹幕出来的时间，isnew为是否加边框，自己发的弹幕，常理上来说是有边框的。
+    var text_obj='{ "text":"'+text+'","color":"'+color+'","size":"'+size+'","position":"'+position+'"';
+	//利用websocket发送
+	websocket.send(text_obj);
+	//清空相应的内容
+    document.getElementById('text').value='';
+  }
+  //调整透明度函数
+  function op(){
+    var op=document.getElementById('op').value;
+    $('#danmu').danmu("setOpacity",op/100);
+  }
+
+//弹幕上的话
+var t = document.getElementById('text');
+            t.onfocus = function(){
+                if(this.innerHTML == 'bibibi~发送弹幕(*^▽^*)'){this.value = ''}
+            };
+            t.onblur = function(){
+                if(this.value == ''){
+                    this.innerHTML = 'bibibi~发送弹幕(*^▽^*)'}   
+            };
+  //调隐藏 显示
+  function changehide() {
+    var op = document.getElementById('op').value;
+    element=document.getElementById('eye')
+    op = op / 100;
+    if (document.getElementById("ishide").checked) {
+      $("#danmu").danmu("setOpacity",1)
+      element.src="./images/open.png";
+    } else {
+      $("#danmu").danmu("setOpacity",0)
+      element.src="./images/close.png";
+    }
+    
+  }
+
+  //设置弹幕时间
+  function settime(){
+    var t=document.getElementById("set_time").value;
+    t=parseInt(t)
+    $('#danmu').danmu("setTime",t);
+  }
+  //选择按钮
+      function radio1(){
+                document.getElementById('sz1').style.backgroundColor = '#EED3D5';
+                document.getElementById('sz2').style.backgroundColor = '#00BFFF';
+            }
+      function radio2(){
+                document.getElementById('sz2').style.backgroundColor = '#EED3D5';
+                document.getElementById('sz1').style.backgroundColor = '#00BFFF';
+            }
+      function radiopst1(){
+                document.getElementById('pst1').style.opacity = '0.6';
+                document.getElementById('pst2').style.opacity = '1';
+                document.getElementById('pst3').style.opacity = '1';
+            }
+      function radiopst2(){
+                document.getElementById('pst2').style.opacity = '0.6';
+                document.getElementById('pst1').style.opacity = '1';
+                document.getElementById('pst3').style.opacity = '1';
+            }    
+      function radiopst3(){
+                document.getElementById('pst3').style.opacity = '0.6';
+                document.getElementById('pst1').style.opacity = '1';
+                document.getElementById('pst2').style.opacity = '1';
+            }   
+    
+</script>
+
+</body>
+</html>

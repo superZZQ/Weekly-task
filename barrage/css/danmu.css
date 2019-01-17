@@ -1,0 +1,233 @@
+ body {
+      font-family: "Microsoft YaHei" ! important;
+      font-color:#222;
+      background-color: #FFFFFF;
+      padding: 0;
+      border: 0;
+      margin: 0;
+      overflow: hidden;
+    }
+    pre {
+      line-height: 2em;
+      font-family: "Microsoft YaHei" ! important;
+    }
+    h4 {
+      line-height: 2em;
+    }
+    #danmuarea {
+      position: relative;
+      background: #F0FFFF;
+      width:100%;
+      height: 300px;
+      margin: auto;
+      border-bottom: 2px solid #1E90FF;
+    }
+    .ctr {
+      font-size: 1em;
+      line-height: 2em;
+    }
+
+#head{
+  text-align: center;
+  padding: 9px;
+  background-color: #00BFFF;
+  color: #FFFFFF;
+  font-size: 16px;
+}
+#main{
+  width: 55%;
+  margin: 15px auto;
+}
+label{
+  font-size: 13px;
+  line-height: 15px;
+  position: relative;
+  top: -6px;
+  margin-right: 10px;
+  color: #1E90FF;
+}
+#eye{
+  width: 50px;
+  height: 33px; 
+  border:none;
+  z-index: 300;
+  position: absolute;
+  top: 260px;
+}
+
+#btn1{
+  margin-top: 5px;
+  margin-left: 20px;
+}
+#btn2{
+  margin-top: 5px;
+}
+#text{
+  position: absolute;
+  left: 0;
+  width: 80%;
+  height: 28px;
+  font-size: 15px;
+  padding: 7px 2px 0px;
+  outline: none;
+  background-color:rgba(255,255,255,0.1);
+  color: #00AEF1;
+  border-radius: 0 0 0 5px;
+  text-align: center;
+  text-align-last: center;
+  border: 0.5px solid #1E90FF;
+}
+#send{
+  position: absolute;
+  right: 0;
+  width: 20%;
+  height: 37px;
+  font-size: 15px;
+  outline: none;
+  background-color: #00BFFF;
+  color: #FFFFFF;
+  border-radius: 0 0 5px 0;
+  border: 0.5px solid #1E90FF;
+}
+#footer{
+  bottom: 0;
+  text-align: center;
+  padding-top: 15px;
+}
+
+    #color{
+      width: 16px;
+      height: 16px;
+      margin: 0px;
+      opacity: 0.5;
+      z-index: 500;
+      position: relative;
+      bottom: 5px;
+    }
+    #cl{
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      margin: 0px;
+      padding-top: 0;
+      overflow: hidden;
+      z-index: 100;
+      border: solid 0.5px #666666;
+      border-radius: 8px;
+    }
+    #size{
+      width: 25px;
+      height: 25px;
+      margin: 0px;
+      z-index: 500;
+      font-size: 24px;
+      position: relative;
+      bottom: 24px;
+      opacity: 0;
+    }
+    #sz1{
+      width: 25px;
+      height: 25px;
+      display: inline-block;
+      margin: 0px;
+      padding-top: 0;
+      z-index: 100;
+      border: solid 0.5px #00BFFF;
+      line-height: 24px;
+      overflow:hidden;
+      background-color: #1E90FF;
+      color: #FFFFFF;
+    }
+    #sz2{
+      width: 25px;
+      height: 25px;
+      text-align: center;
+      display: inline-block;
+      margin: 0px;
+      padding-top: 0;
+      z-index: 100;
+      border: solid 0.5px #00BFFF;
+      line-height: 25px;
+      font-size: 16px;
+      overflow:hidden;
+      background-color: #1E90FF;
+      color: #FFFFFF;
+    }
+    #position{
+      width: 27px;
+      height: 31px;
+      margin: 0px;
+      z-index: 500;
+      opacity: 0;
+      position: absolute;
+      right: 0.5px;
+
+    }
+    #pst1{
+      width: 27px;
+      height: 30px;
+      display: inline-block;
+      position: relative;
+      margin: 0px;
+      padding-top: 0;
+      z-index: 100;
+      border: solid 0.5px #BBBBBB;
+      font-size: 8px;
+      font-weight: bold;
+      background-image: url(../images/scroll.png);
+    }
+    #pst2{
+      width: 27px;
+      height: 30px;
+      display: inline-block;
+      position: relative;
+      margin: 0px;
+      padding-top: 0;
+      z-index: 100;
+      border: solid 0.5px #BBBBBB;
+      font-size: 8px;
+      font-weight: bold;
+      background-image: url(../images/top.png);
+    }
+    #pst3{
+      width: 27px;
+      height: 30px;
+      display: inline-block;
+      position: relative;
+      margin: 0px;
+      padding-top: 0;
+      z-index: 100;
+      border: solid 0.5px #BBBBBB;
+      font-size: 8px;
+      font-weight: bold;
+      background-image: url(../images/bottom.png);
+    }
+    #btm{
+     position: relative;
+     top: 24px;
+     color: #666666;
+    }
+    #ishide{
+      width: 45px;
+      height: 45px;
+      z-index: 500;
+      position: absolute;
+      top: 250px;
+      opacity: 0;
+    }
+@media only screen and (max-width: 360px){
+  #danmuarea {
+      width:100%;
+      height: 250px;
+    }
+    #eye{
+      position: absolute;
+      top: 210px;
+    }
+    #ishide{
+      top: 200px;
+    }
+    #btn1{
+      margin-left: 10px;
+    }
+}
